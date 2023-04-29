@@ -2,8 +2,9 @@
   "name": "fat-tiger",
   "version": "1.0.0",
   "description": "Food delivery platform",
-  "main": "App.js",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
