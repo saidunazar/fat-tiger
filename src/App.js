@@ -1,5 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { useState } from "react";
 
 //Components
 import Header from "./components/shared/Header";
@@ -7,18 +6,14 @@ import Footer from "./components/shared/Footer";
 import Main from "./components/Main";
 
 const App = () => {
+  const [searchText, setSearchText] = useState("");
   return (
     <>
-      <Header />
-      <Main />
+      <Header setSearchText={setSearchText} />
+      <Main searchText={searchText} />
       <Footer />
     </>
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export default App;

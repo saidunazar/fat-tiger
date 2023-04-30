@@ -1,9 +1,9 @@
 import RestaurantList from "./RestaurantList";
 
-const Main = ({ apiData }) => {
+const Main = ({ searchText }) => {
   return (
     <main>
-      <RestaurantList apiData={apiData} />
+      <RestaurantList searchText={searchText} />
     </main>
   );
 };

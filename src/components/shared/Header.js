@@ -1,6 +1,6 @@
 import logo from "/assets/fat-tiger-logo.png";
 
-const Header = () => {
+const Header = ({ setSearchText }) => {
   return (
     <header>
       <div className="header-left-section">
@@ -20,6 +20,7 @@ const Header = () => {
           tabIndex={2}
           className="search-bar"
           placeholder="Search..."
+          onChange={(e) => setSearchText(e.target.value)}
         />
       </div>
       <div className="header-right-section">

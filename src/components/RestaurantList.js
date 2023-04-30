@@ -1,9 +1,16 @@
 import RestaurantCard from "./RestaurantCard";
 import apiData from "../utils/mockData";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-const RestaurantList = () => {
+const RestaurantList = ({ searchText }) => {
   const [restaurantList, setRestaurantList] = useState(apiData);
+
+  useEffect(() => {
+    const filteredSearchResult = apiData.filter((restaurant) =>
+      restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setRestaurantList(filteredSearchResult);
+  }, [searchText]);
 
   const filterRestaurantList = () => {
     const filteredList = restaurantList.filter(
