@@ -7,10 +7,19 @@
     .btn {
       background-color: $light-font-color;
       border: none;
-      border-bottom: 2px solid $orange-font-color;
       cursor: pointer;
       margin: 0 5px;
-      padding: 5px;
+      font-size: $p-regular-font-size;
+    }
+    .btn-show-all {
+      border: 2px solid $orange-font-color;
+      color: $dark-font-color;
+      padding: 6px;
+    }
+    .btn-filter {
+      background-color: $orange-font-color;
+      color: $light-font-color;
+      padding: 8px;
     }
   }
 
@@ -23,6 +32,18 @@
 
     .restaurant-card {
       margin: 10px;
+    }
+
+    .no-restaurant-found {
+      padding: 50px;
+      margin: 10px;
+      font-size: $large-font-size;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      img {
+        height: 125px;
+      }
     }
   }
 }

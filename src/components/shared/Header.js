@@ -1,4 +1,4 @@
-import logo from "/assets/fat-tiger-logo.png";
+import LOGO from "/assets/fat-tiger-logo.png";
 
 const Header = ({ setSearchText }) => {
   return (
@@ -6,7 +6,7 @@ const Header = ({ setSearchText }) => {
       <div className="header-left-section">
         <div className="brand-identity">
           <img
-            src={logo}
+            src={LOGO}
             alt="fat-tiger-logo"
             className="brand-logo"
             tabIndex={1}
