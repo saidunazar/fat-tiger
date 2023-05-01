@@ -4,17 +4,12 @@ const Header = ({ setSearchText }) => {
   return (
     <header>
       <div className="header-left-section">
-        <div className="brand-identity">
-          <img
-            src={LOGO}
-            alt="fat-tiger-logo"
-            className="brand-logo"
-            tabIndex={1}
-          />
-          <h5 className="brand-name" aria-label="Fat Tiger">
-            FAT TIGER
-          </h5>
-        </div>
+        <img
+          src={LOGO}
+          alt="fat-tiger-logo"
+          className="brand-logo"
+          tabIndex={1}
+        />
         <input
           type="search"
           tabIndex={2}

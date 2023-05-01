@@ -8,24 +8,10 @@ header {
   .header-left-section {
     display: flex;
     align-items: center;
-
-    .brand-identity {
-      margin-right: 20px;
-      display: flex;
-      font-size: $brand-identity-font-size;
-
-      .brand-logo {
-        height: 55px;
-        margin-right: 5px;
-      }
-
-      .brand-name {
-        font-family: $logo-font-family;
-        color: $semi-dark-font-color;
-        margin-right: 10px;
-      }
+    .brand-logo {
+      height: 60px;
+      margin-right: 5px;
     }
-
     .search-bar {
       width: 175px;
       border: none;
