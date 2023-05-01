@@ -1,0 +1,35 @@
+.restaurant-card {
+  width: 200px;
+  height: auto;
+  padding: 10px;
+  border-radius: 5px;
+  h4 {
+    font-size: $h4-regular-font-size;
+  }
+  p {
+    font-size: $p-small-font-size;
+    margin-bottom: 0px;
+  }
+  .restaurant-card-logo {
+    width: 100%;
+  }
+  .restaurant-card-more-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .restaurant-rating {
+      padding: 2px 5px;
+      background-color: $rating-color;
+      color: $light-font-color;
+      border-radius: 2px;
+      .checked {
+        margin-right: 3px;
+      }
+    }
+  }
+}
+.restaurant-card:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 3px $box-shadow-color;
+}

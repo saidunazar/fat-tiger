@@ -6,11 +6,10 @@ import Footer from "./components/shared/Footer";
 import Main from "./components/Main";
 
 const App = () => {
-  const [searchText, setSearchText] = useState("");
   return (
     <>
-      <Header setSearchText={setSearchText} />
-      <Main searchText={searchText} />
+      <Header />
+      <Main />
       <Footer />
     </>
   );

@@ -1,32 +1,20 @@
-@import "./styles/variables.scss";
-
 header {
   display: flex;
   justify-content: space-between;
   margin: 10px;
-
   .header-left-section {
     display: flex;
     align-items: center;
     .brand-logo {
-      height: 60px;
+      height: 55px;
       margin-right: 5px;
-    }
-    .search-bar {
-      width: 175px;
-      border: none;
-      border-bottom: 1.5px solid $semi-dark-font-color;
-      margin-left: 25px;
-    }
-
-    .search-bar:focus {
-      outline: none;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
-
   .header-nav {
     display: flex;
-
     li {
       font-size: $secondary-font-size;
       font-weight: 500;
@@ -34,14 +22,13 @@ header {
       list-style: none;
       cursor: pointer;
     }
-
     li:hover {
       border-bottom: 2px solid $orange-font-color;
     }
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 630px) {
   header {
     flex-direction: column;
 

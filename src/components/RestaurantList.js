@@ -1,10 +1,12 @@
-import RestaurantCard from "./RestaurantCard";
-import apiData from "../utils/mockData";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import NOT_FOUND_IMAGE from "../../assets/not-found.svg";
+import apiData from "../utils/mockData";
+import RestaurantCard from "./RestaurantCard";
+import RestaurantFilter from "./RestaurantFilter";
 
-const RestaurantList = ({ searchText }) => {
-  const [restaurantList, setRestaurantList] = useState(apiData);
+const RestaurantList = ({ apiResponseData }) => {
+  const [restaurantList, setRestaurantList] = useState(apiResponseData);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     const filteredSearchResult = apiData.filter((restaurant) =>
@@ -26,20 +28,12 @@ const RestaurantList = ({ searchText }) => {
 
   return (
     <div className="restaurant-list-container">
-      <section className="filter-button-container">
-        <span className="fa fa-filter"></span>
-        <button
-          className="btn btn-show-all"
-          onClick={() => showAllRestaurant()}
-        >
-          All Restaurants
-        </button>
-        <button
-          className="btn btn-filter"
-          onClick={() => filterRestaurantList()}
-        >
-          Top Rated Restaurants
-        </button>
+      <section className="filter-container">
+        <RestaurantFilter
+          showAllRestaurant={showAllRestaurant}
+          filterRestaurantList={filterRestaurantList}
+          setSearchText={setSearchText}
+        />
       </section>
       <section className="restaurant-card-container">
         {restaurantList.length > 0 ? (
