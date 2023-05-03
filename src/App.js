@@ -1,15 +1,14 @@
-import { useState } from "react";
-
 //Components
 import Header from "./components/shared/Header";
 import Footer from "./components/shared/Footer";
-import Main from "./components/Main";
+import { Outlet } from "react-router";
 
+Outlet;
 const App = () => {
   return (
     <>
       <Header />
-      <Main />
+      <Outlet />
       <Footer />
     </>
   );

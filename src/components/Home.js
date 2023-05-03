@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import RestaurantList from "./RestaurantList";
 
-const Main = () => {
+const Home = () => {
   const [apiResponseData, setApiResponseData] = useState([]);
 
   useEffect(() => {
@@ -27,4 +27,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;
