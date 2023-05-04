@@ -1,0 +1,30 @@
+.restaurant-menu-container {
+  .restaurant-heading {
+    margin-left: 20px;
+  }
+  .restaurant-menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    .menu-item {
+      margin: 10px;
+      padding: 0 10px;
+      h4 {
+        font-size: $h4-regular-font-size;
+        max-width: 100px;
+      }
+      .menu-item-addinfo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: $p-regular-font-size;
+        .menu-item-veg-category {
+          font-size: 18px;
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        box-shadow: 2px 2px 3px $box-shadow-color;
+      }
+    }
+  }
+}

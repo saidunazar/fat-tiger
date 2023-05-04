@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import NOT_FOUND_IMAGE from "../../assets/not-found.svg";
+import { Link } from "react-router-dom";
+
 import apiData from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import RestaurantFilter from "./RestaurantFilter";
@@ -38,10 +40,12 @@ const RestaurantList = ({ apiResponseData }) => {
       <section className="restaurant-card-container">
         {restaurantList.length > 0 ? (
           restaurantList.map((restaurant) => (
-            <RestaurantCard
+            <Link
+              to={`/restaurant-menu/${restaurant.data.id}`}
               key={restaurant.data.id}
-              restaurantDetails={restaurant.data}
-            />
+            >
+              <RestaurantCard restaurantDetails={restaurant.data} />
+            </Link>
           ))
         ) : (
           <div className="no-restaurant-found">

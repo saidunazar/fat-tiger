@@ -1,10 +1,7 @@
-import { useParams } from "react-router";
-
 const Offers = () => {
-  const { id } = useParams();
   return (
     <>
-      <h4>Here is your offers: {id}!🚀 </h4>
+      <h4>Here is your offers!🚀 </h4>
     </>
   );
 };

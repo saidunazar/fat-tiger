@@ -1,0 +1,13 @@
+.loader {
+  width: 75%;
+  margin: auto;
+  text-align: center;
+  height: 68vh;
+  position: relative;
+  top: 80px;
+
+  span::before {
+    font-size: xx-large;
+    color: darkorange;
+  }
+}

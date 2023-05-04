@@ -18,7 +18,7 @@ const Header = () => {
             <Link to="/home">Home</Link>
           </li>
           <li tabIndex={3}>
-            <Link to="/offers/12">Offers</Link>
+            <Link to="/offers">Offers</Link>
           </li>
           <li>Sign In</li>
           <li>
