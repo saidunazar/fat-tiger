@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import RestaurantList from "./RestaurantList";
 import { fetchData } from "../utils/api";
 import Loader from "./shared/Loader";
+import { Outlet } from "react-router";
 
 const Home = () => {
   const [apiResponseData, setApiResponseData] = useState([]);
@@ -28,6 +29,7 @@ const Home = () => {
       ) : (
         <Loader />
       )}
+      <Outlet />
     </main>
   );
 };

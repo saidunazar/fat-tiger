@@ -11,7 +11,7 @@ const RestaurantList = ({ apiResponseData }) => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    const filteredSearchResult = apiData.filter((restaurant) =>
+    const filteredSearchResult = apiResponseData.filter((restaurant) =>
       restaurant?.data?.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setRestaurantList(filteredSearchResult);
@@ -25,7 +25,7 @@ const RestaurantList = ({ apiResponseData }) => {
   };
 
   const showAllRestaurant = () => {
-    setRestaurantList(apiData);
+    setRestaurantList(apiResponseData);
   };
 
   return (

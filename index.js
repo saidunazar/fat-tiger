@@ -21,6 +21,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+        children: [
+          {
+            path: "offers",
+            element: <Offers />,
+          },
+        ],
       },
       {
         path: "/restaurant-menu/:id",
