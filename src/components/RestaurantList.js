@@ -10,6 +10,15 @@ const RestaurantList = ({ apiResponseData }) => {
   const [restaurantList, setRestaurantList] = useState(apiResponseData);
   const [searchText, setSearchText] = useState("");
 
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     console.log("Random cleanup function🤖");
+  //   }, 1000);
+
+  //   return () => {
+  //     setInterval(timer);
+  //   };
+  // }, []);
   useEffect(() => {
     const filteredSearchResult = apiResponseData.filter((restaurant) =>
       restaurant?.data?.name.toLowerCase().includes(searchText.toLowerCase())

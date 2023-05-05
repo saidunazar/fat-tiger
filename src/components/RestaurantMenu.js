@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { fetchData } from "../utils/api";
 import Loader from "./shared/Loader";
 import { Error } from "./Error";
-import { CDN_URL } from "../utils/constants";
+import { CDN_URL, MENU_URL } from "../utils/constants";
 
 const RestaurantMenu = () => {
   const [restaurantMenu, setRestaurantMenu] = useState([]);
@@ -18,10 +18,7 @@ const RestaurantMenu = () => {
 
   const getRestaurantMenu = async () => {
     try {
-      const data = await fetchData(
-        "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=" +
-          id
-      );
+      const data = await fetchData(MENU_URL + id);
       setError(false);
       setRestaurantMenu(
         data?.cards[2]?.groupedCard?.cardGroupMap?.["REGULAR"]?.cards[1]?.card

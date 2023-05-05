@@ -1,12 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./src/App";
 import Home from "./src/components/Home";
-import Offers from "./src/components/Offers";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import { Error } from "./src/components/Error";
+import Loader from "./src/components/shared/Loader";
+
+const Offers = lazy(() => import("./src/components/Offers"));
 
 const appRouter = createBrowserRouter([
   {
@@ -34,7 +36,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/offers",
-        element: <Offers />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Offers />
+          </Suspense>
+        ),
       },
     ],
   },
