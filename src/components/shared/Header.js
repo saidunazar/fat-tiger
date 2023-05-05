@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import LOGO from "/assets/fat-tiger-logo.png";
+import useLogin from "../../utils/custom-hooks/useLogin";
 
 const Header = () => {
+  const [loginStatus, setLoginStatus] = useLogin();
   return (
     <header>
       <div className="header-left-section">
@@ -20,7 +22,9 @@ const Header = () => {
           <li tabIndex={3}>
             <Link to="/offers">Offers</Link>
           </li>
-          <li>Sign In</li>
+          <li onClick={() => setLoginStatus()}>
+            {loginStatus ? "Sign Out" : "Sign In"}
+          </li>
           <li>
             Cart <span className="fa fa-shopping-cart"></span>
           </li>
