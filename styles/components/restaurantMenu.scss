@@ -1,10 +1,11 @@
 .restaurant-menu-container {
   .restaurant-heading {
-    margin-left: 20px;
+    text-align: center;
   }
   .restaurant-menu-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     .menu-item {
       margin: 10px;
       padding: 0 10px;
@@ -20,9 +21,17 @@
         .menu-item-veg-category {
           font-size: 18px;
         }
+        .add-to-cart-button {
+          background: $orange-font-color;
+          color: $light-font-color;
+          font-size: $p-small-font-size;
+          border: none;
+          padding: 5px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
       }
       &:hover {
-        cursor: pointer;
         box-shadow: 2px 2px 3px $box-shadow-color;
       }
     }

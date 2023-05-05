@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 
 import { fetchData } from "../utils/api";
 import Loader from "./shared/Loader";
-import { Error } from "./Error";
 import { CDN_URL, MENU_URL } from "../utils/constants";
 
 const RestaurantMenu = () => {
@@ -36,14 +35,16 @@ const RestaurantMenu = () => {
       {restaurantMenu?.length > 0 ? (
         <div className="restaurant-menu-container">
           <section className="restaurant-heading">
-            <h4>Restaurant Menu:</h4>
+            <h3>
+              <span> Menu🍟 </span>
+            </h3>
           </section>
           <section className="restaurant-menu-list">
             {restaurantMenu.map((menuItem) => (
               <div className="menu-item" key={menuItem.card.info.id}>
                 <img
                   src={CDN_URL + menuItem.card.info.imageId}
-                  height="80px"
+                  height="130px"
                   alt="dish-image"
                   className="menu-dish-image"
                 />
@@ -63,6 +64,10 @@ const RestaurantMenu = () => {
                       ></span>
                     )}
                   </span>
+                  <button className="add-to-cart-button">
+                    ADD <i className="fa fa-plus"></i>
+                  </button>
+
                   <p>
                     <b>Price:</b> Rs {menuItem.card.info.price / 100}
                   </p>
