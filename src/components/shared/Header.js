@@ -20,13 +20,21 @@ const Header = () => {
             <Link to="/home">Home</Link>
           </li>
           <li tabIndex={3}>
-            <Link to="/offers">Offers</Link>
-          </li>
-          <li onClick={() => setLoginStatus()}>
-            {loginStatus ? "Sign Out" : "Sign In"}
+            <Link to="/faqs">Faqs</Link>
           </li>
           <li>
-            Cart <span className="fa fa-shopping-cart"></span>
+            <span
+              className="fa fa-shopping-cart"
+              style={{ color: "darkorange" }}
+            ></span>{" "}
+            Cart
+          </li>
+          <li onClick={() => setLoginStatus()}>
+            <span
+              className="fa fa-user-circle"
+              style={loginStatus ? { color: "darkorange" } : { color: "grey" }}
+            ></span>{" "}
+            {loginStatus ? "Sign out" : "Sign in"}
           </li>
         </ul>
       </div>

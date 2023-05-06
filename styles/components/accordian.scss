@@ -1,0 +1,18 @@
+.accordian-container {
+  margin: 10px;
+  padding: 2px;
+  max-width: 60%;
+  min-width: 100px;
+  margin: auto;
+  margin-bottom: 25px;
+  .accordian-title {
+    background: lightgrey;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  p {
+    padding: 0px 5px;
+  }
+}

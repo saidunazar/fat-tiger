@@ -8,7 +8,7 @@ import RestaurantMenu from "./src/components/RestaurantMenu";
 import { Error } from "./src/components/Error";
 import Loader from "./src/components/shared/Loader";
 
-const Offers = lazy(() => import("./src/components/Offers"));
+const Faqs = lazy(() => import("./src/components/Faqs"));
 
 const appRouter = createBrowserRouter([
   {
@@ -25,8 +25,8 @@ const appRouter = createBrowserRouter([
         element: <Home />,
         children: [
           {
-            path: "offers",
-            element: <Offers />,
+            path: "faqs",
+            element: <Faqs />,
           },
         ],
       },
@@ -35,10 +35,10 @@ const appRouter = createBrowserRouter([
         element: <RestaurantMenu />,
       },
       {
-        path: "/offers",
+        path: "/faqs",
         element: (
           <Suspense fallback={<Loader />}>
-            <Offers />
+            <Faqs />
           </Suspense>
         ),
       },
