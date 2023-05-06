@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import NOT_FOUND_IMAGE from "../../assets/not-found.svg";
 import { Link } from "react-router-dom";
 
-import apiData from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import RestaurantFilter from "./RestaurantFilter";
 
