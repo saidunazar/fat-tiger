@@ -38,9 +38,11 @@ const Cart = () => {
         ))}
       </section>
       <section className="clear-cart-btn-container">
-        <button className="clear-cart-btn" onClick={handleClearCart}>
-          Clear Cart
-        </button>
+        {cartItems?.items.length > 0 && (
+          <button className="clear-cart-btn" onClick={handleClearCart}>
+            Clear Cart
+          </button>
+        )}
       </section>
     </main>
   );

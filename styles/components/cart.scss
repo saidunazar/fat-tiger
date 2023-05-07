@@ -13,18 +13,19 @@
     .cart-item-details {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: flex-start;
       margin: 0px 20px;
     }
-    .clear-cart-btn-container {
-      text-align: center;
-      .clear-cart-btn {
-        color: #000;
-        border: 2px solid #ff8c00;
-        padding: 6px;
-        background: #ffff;
-      }
+  }
+  .clear-cart-btn-container {
+    text-align: center;
+    margin-bottom: 20px;
+    .clear-cart-btn {
+      color: #000;
+      border: 2px solid #ff8c00;
+      padding: 6px;
+      background: #ffff;
     }
   }
 }

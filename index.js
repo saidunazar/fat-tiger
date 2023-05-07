@@ -7,7 +7,7 @@ import Home from "./src/components/Home";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import { Error } from "./src/components/Error";
 import Loader from "./src/components/shared/Loader";
-import Cart from "./src/components/cart";
+import Cart from "./src/components/Cart";
 
 const Faqs = lazy(() => import("./src/components/Faqs"));
 
