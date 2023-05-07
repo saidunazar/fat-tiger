@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import LOGO from "/assets/fat-tiger-logo.png";
 import useLogin from "../../utils/custom-hooks/useLogin";
+import { useContext } from "react";
+import UserContext from "../../utils/UserContext";
 
 const Header = () => {
   const [loginStatus, setLoginStatus] = useLogin();
+  const { cartItems } = useContext(UserContext);
   return (
     <header>
       <div className="header-left-section">
@@ -27,7 +30,7 @@ const Header = () => {
               className="fa fa-shopping-cart"
               style={{ color: "darkorange" }}
             ></span>{" "}
-            Cart
+            Cart {cartItems.length > 0 ? cartItems.length : ""}
           </li>
           <li onClick={() => setLoginStatus()}>
             <span

@@ -8,7 +8,6 @@ import RestaurantFilter from "./RestaurantFilter";
 const RestaurantList = ({ apiResponseData }) => {
   const [restaurantList, setRestaurantList] = useState(apiResponseData);
   const [searchText, setSearchText] = useState("");
-
   // useEffect(() => {
   //   const timer = setInterval(() => {
   //     console.log("Random cleanup function🤖");

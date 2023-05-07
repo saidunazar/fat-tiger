@@ -1,15 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 
 import { fetchData } from "../utils/api";
 import Loader from "./shared/Loader";
 import { CDN_URL, MENU_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const RestaurantMenu = () => {
   const [restaurantMenu, setRestaurantMenu] = useState([]);
   const [error, setError] = useState(false);
 
   const { id } = useParams();
+  const { userDetails, cartItems, setCartItem } = useContext(UserContext);
+  const randomArr = [{ name: "saidu" }, { name: "tom" }];
 
   useEffect(() => {
     getRestaurantMenu();
@@ -27,6 +30,12 @@ const RestaurantMenu = () => {
       setError(true);
     }
   };
+
+  const handleAddToCart = (menuItem) => {
+    const { id, name, price, imageId } = menuItem?.card?.info;
+    setCartItem([...cartItems, { id, name, price, imageId }]);
+  };
+
   if (error) {
     return <h4>Sorry, restaurant is unavailable right now. </h4>;
   }
@@ -35,9 +44,7 @@ const RestaurantMenu = () => {
       {restaurantMenu?.length > 0 ? (
         <div className="restaurant-menu-container">
           <section className="restaurant-heading">
-            <h3>
-              <span> Menu🍟 </span>
-            </h3>
+            <h3>Hello {userDetails.name}, here is your menu!</h3>
           </section>
           <section className="restaurant-menu-list">
             {restaurantMenu.map((menuItem) => (
@@ -64,7 +71,10 @@ const RestaurantMenu = () => {
                       ></span>
                     )}
                   </span>
-                  <button className="add-to-cart-button">
+                  <button
+                    className="add-to-cart-button"
+                    onClick={() => handleAddToCart(menuItem)}
+                  >
                     ADD <i className="fa fa-plus"></i>
                   </button>
 
