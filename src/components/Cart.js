@@ -28,7 +28,7 @@ const Cart = () => {
                 <span
                   className="fa fa-remove"
                   style={{ fontSize: "14px", color: "red" }}
-                  onClick={handleRemoveItem}
+                  onClick={() => handleRemoveItem(item)}
                 ></span>
               </h4>
               <p>{item?.description}</p>

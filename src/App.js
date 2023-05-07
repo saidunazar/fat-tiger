@@ -8,17 +8,17 @@ import { Provider } from "react-redux";
 
 const App = () => {
   const [cartItems, setCartItem] = useState([]);
-  const user = useContext(UserContext);
+  // const user = useContext(UserContext);
 
   return (
     <Provider store={store}>
-      <UserContext.Provider
+      {/* <UserContext.Provider
         value={{ ...user, cartItems: cartItems, setCartItem: setCartItem }}
-      >
-        <Header />
-        <Outlet />
-        <Footer />
-      </UserContext.Provider>
+      > */}
+      <Header />
+      <Outlet />
+      <Footer />
+      {/* </UserContext.Provider> */}
     </Provider>
   );
 };
