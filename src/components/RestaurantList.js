@@ -36,7 +36,7 @@ const RestaurantList = ({ apiResponseData }) => {
   };
 
   return (
-    <div className="restaurant-list-container">
+    <main className="restaurant-list-container">
       <section className="filter-container">
         <RestaurantFilter
           showAllRestaurant={showAllRestaurant}
@@ -61,7 +61,7 @@ const RestaurantList = ({ apiResponseData }) => {
           </div>
         )}
       </section>
-    </div>
+    </main>
   );
 };
 

@@ -12,7 +12,6 @@ const RestaurantMenu = () => {
 
   const { id } = useParams();
   const { userDetails, cartItems, setCartItem } = useContext(UserContext);
-  const randomArr = [{ name: "saidu" }, { name: "tom" }];
 
   useEffect(() => {
     getRestaurantMenu();
@@ -42,13 +41,13 @@ const RestaurantMenu = () => {
   return (
     <>
       {restaurantMenu?.length > 0 ? (
-        <div className="restaurant-menu-container">
+        <main className="restaurant-menu-container">
           <section className="restaurant-heading">
             <h3>Hello {userDetails.name}, here is your menu!</h3>
           </section>
           <section className="restaurant-menu-list">
             {restaurantMenu.map((menuItem) => (
-              <div className="menu-item" key={menuItem.card.info.id}>
+              <article className="menu-item" key={menuItem.card.info.id}>
                 <img
                   src={CDN_URL + menuItem.card.info.imageId}
                   height="130px"
@@ -56,7 +55,7 @@ const RestaurantMenu = () => {
                   className="menu-dish-image"
                 />
                 <h4>{menuItem.card.info.name}</h4>
-                <div className="menu-item-addinfo">
+                <section className="menu-item-addinfo">
                   <span className="menu-item-veg-category">
                     {menuItem.card.info.itemAttribute.vegClassifier ===
                     "VEG" ? (
@@ -81,11 +80,11 @@ const RestaurantMenu = () => {
                   <p>
                     <b>Price:</b> Rs {menuItem.card.info.price / 100}
                   </p>
-                </div>
-              </div>
+                </section>
+              </article>
             ))}
           </section>
-        </div>
+        </main>
       ) : (
         <Loader />
       )}

@@ -9,15 +9,15 @@ const Header = () => {
   const { cartItems } = useContext(UserContext);
   return (
     <header>
-      <div className="header-left-section">
+      <section className="header-left-section">
         <img
           src={LOGO}
           alt="fat-tiger-logo"
           className="brand-logo"
           tabIndex={1}
         />
-      </div>
-      <div className="header-right-section">
+      </section>
+      <section className="header-right-section">
         <ul className="header-nav">
           <li>
             <Link to="/home">Home</Link>
@@ -40,7 +40,7 @@ const Header = () => {
             {loginStatus ? "Sign out" : "Sign in"}
           </li>
         </ul>
-      </div>
+      </section>
     </header>
   );
 };

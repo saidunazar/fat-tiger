@@ -4,8 +4,8 @@ const Accordian = ({ title, description }) => {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <>
-      <section className="accordian-container">
-        <div className="accordian-title">
+      <main className="accordian-container">
+        <section className="accordian-title">
           <h4>{title}</h4>
           {isVisible ? (
             <span
@@ -22,9 +22,9 @@ const Accordian = ({ title, description }) => {
               }}
             ></span>
           )}
-        </div>
+        </section>
         {isVisible && <p>{description}</p>}
-      </section>
+      </main>
     </>
   );
 };
