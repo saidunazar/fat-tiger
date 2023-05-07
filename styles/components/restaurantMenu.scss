@@ -1,4 +1,6 @@
 .restaurant-menu-container {
+  width: 80%;
+  margin: auto;
   .restaurant-heading {
     text-align: center;
   }
@@ -7,7 +9,7 @@
     flex-wrap: wrap;
     justify-content: center;
     .menu-item {
-      margin: 10px;
+      margin: 20px;
       padding: 0 10px;
       h4 {
         font-size: $h4-regular-font-size;

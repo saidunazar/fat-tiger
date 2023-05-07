@@ -1,17 +1,20 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
 import { fetchData } from "../utils/api";
 import Loader from "./shared/Loader";
 import { CDN_URL, MENU_URL } from "../utils/constants";
-import UserContext from "../utils/UserContext";
+import { addItem } from "../utils/store/cartSlice";
+import { useDispatch } from "react-redux";
+//import UserContext from "../utils/UserContext";
 
 const RestaurantMenu = () => {
   const [restaurantMenu, setRestaurantMenu] = useState([]);
   const [error, setError] = useState(false);
 
   const { id } = useParams();
-  const { userDetails, cartItems, setCartItem } = useContext(UserContext);
+  const dispatch = useDispatch();
+  //const { userDetails, cartItems, setCartItem } = useContext(UserContext);
 
   useEffect(() => {
     getRestaurantMenu();
@@ -31,8 +34,9 @@ const RestaurantMenu = () => {
   };
 
   const handleAddToCart = (menuItem) => {
-    const { id, name, price, imageId } = menuItem?.card?.info;
-    setCartItem([...cartItems, { id, name, price, imageId }]);
+    const { id, name, description, price, imageId } = menuItem?.card?.info;
+    //setCartItem([...cartItems, { id, name, price, imageId }]);
+    dispatch(addItem({ id, name, description, price, imageId }));
   };
 
   if (error) {
@@ -43,14 +47,14 @@ const RestaurantMenu = () => {
       {restaurantMenu?.length > 0 ? (
         <main className="restaurant-menu-container">
           <section className="restaurant-heading">
-            <h3>Hello {userDetails.name}, here is your menu!</h3>
+            <h3>Restaurant Menu🍟</h3>
           </section>
           <section className="restaurant-menu-list">
             {restaurantMenu.map((menuItem) => (
               <article className="menu-item" key={menuItem.card.info.id}>
                 <img
                   src={CDN_URL + menuItem.card.info.imageId}
-                  height="130px"
+                  height="100px"
                   alt="dish-image"
                   className="menu-dish-image"
                 />

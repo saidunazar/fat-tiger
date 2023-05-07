@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import LOGO from "/assets/fat-tiger-logo.png";
 import useLogin from "../../utils/custom-hooks/useLogin";
-import { useContext } from "react";
-import UserContext from "../../utils/UserContext";
+import { useSelector } from "react-redux";
+//import { useContext } from "react";
+//import UserContext from "../../utils/UserContext";
 
 const Header = () => {
   const [loginStatus, setLoginStatus] = useLogin();
-  const { cartItems } = useContext(UserContext);
+  //const { cartItems } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cartItem);
+
   return (
     <header>
       <section className="header-left-section">
@@ -25,19 +28,21 @@ const Header = () => {
           <li tabIndex={3}>
             <Link to="/faqs">Faqs</Link>
           </li>
-          <li>
-            <span
-              className="fa fa-shopping-cart"
-              style={{ color: "darkorange" }}
-            ></span>{" "}
-            Cart {cartItems.length > 0 ? cartItems.length : ""}
-          </li>
           <li onClick={() => setLoginStatus()}>
             <span
               className="fa fa-user-circle"
               style={loginStatus ? { color: "darkorange" } : { color: "grey" }}
             ></span>{" "}
             {loginStatus ? "Sign out" : "Sign in"}
+          </li>
+          <li>
+            <Link to="/cart">
+              <span
+                className="fa fa-shopping-cart"
+                style={{ color: "darkorange" }}
+              ></span>{" "}
+              Cart {cartItems?.items.length > 0 ? cartItems?.items.length : ""}
+            </Link>
           </li>
         </ul>
       </section>
