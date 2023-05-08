@@ -16,7 +16,11 @@ const Cart = () => {
   return (
     <main className="cart-container">
       <section className="cart-heading">
-        <h4>You cart items:</h4>
+        <h4>
+          {cartItems.items.length > 0
+            ? "Your cart items:"
+            : "Your cart is empty."}
+        </h4>
       </section>
       <section className="cart-items-container">
         {cartItems.items.map((item) => (

@@ -18,6 +18,7 @@ const Header = () => {
           alt="fat-tiger-logo"
           className="brand-logo"
           tabIndex={1}
+          data-testid="header-logo"
         />
       </section>
       <section className="header-right-section">
@@ -33,7 +34,9 @@ const Header = () => {
               className="fa fa-user-circle"
               style={loginStatus ? { color: "darkorange" } : { color: "grey" }}
             ></span>{" "}
-            {loginStatus ? "Sign out" : "Sign in"}
+            <span data-testid="logged-in-status">
+              {loginStatus ? "Sign out" : "Sign in"}
+            </span>
           </li>
           <li>
             <Link to="/cart">
@@ -41,7 +44,10 @@ const Header = () => {
                 className="fa fa-shopping-cart"
                 style={{ color: "darkorange" }}
               ></span>{" "}
-              Cart {cartItems?.items.length > 0 ? cartItems?.items.length : ""}
+              <span data-testid="header-cart">
+                Cart{" "}
+                {cartItems?.items.length > 0 ? cartItems?.items.length : ""}
+              </span>
             </Link>
           </li>
         </ul>
