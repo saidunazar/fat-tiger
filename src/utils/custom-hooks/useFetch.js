@@ -11,8 +11,7 @@ const useFetch = (apiUrl) => {
     try {
       const response = await fetch(apiUrl);
       const jsonResponse = await response.json();
-      const { data } = jsonResponse;
-      setResponse(data);
+      setResponse(jsonResponse);
     } catch (err) {
       console.log(err);
     }

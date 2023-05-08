@@ -22,7 +22,7 @@ const RestaurantMenu = () => {
 
   const getRestaurantMenu = async () => {
     try {
-      const data = await fetchData(MENU_URL + id);
+      const { data } = await fetchData(MENU_URL + id);
       setError(false);
       setRestaurantMenu(
         data?.cards[2]?.groupedCard?.cardGroupMap?.["REGULAR"]?.cards[1]?.card

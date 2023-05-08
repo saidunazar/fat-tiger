@@ -44,7 +44,10 @@ const RestaurantList = ({ apiResponseData }) => {
           setSearchText={setSearchText}
         />
       </section>
-      <section className="restaurant-card-container">
+      <section
+        className="restaurant-card-container"
+        data-testid="restaurant-list"
+      >
         {restaurantList.length > 0 ? (
           restaurantList.map((restaurant) => (
             <Link
