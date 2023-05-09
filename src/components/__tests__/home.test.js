@@ -17,29 +17,33 @@ describe("Home Component", () => {
     });
   });
 
-  test("Spinner is showing", () => {
-    const home = render(
+  test("Spinner is showing", async () => {
+    const { getByTestId } = render(
       <StaticRouter>
         <Provider store={store}>
           <Home />
         </Provider>
       </StaticRouter>
     );
-
-    const loader = home.getByTestId("loader");
+    await waitFor(() => {
+      getByTestId("loader");
+    });
+    const loader = getByTestId("loader");
     expect(loader).toBeTruthy();
   });
 
   test("Restaurants are listing", async () => {
-    const home = render(
+    const { getByTestId } = render(
       <StaticRouter>
         <Provider store={store}>
           <Home />
         </Provider>
       </StaticRouter>
     );
-    await waitFor(() => expect(home.getByTestId("restaurant-list")));
-    const resList = home.getByTestId("restaurant-list");
+    await waitFor(() =>
+      expect(getByTestId("restaurant-list")).toBeInTheDocument()
+    );
+    const resList = getByTestId("restaurant-list");
     expect(resList.children.length).toBe(15);
   });
 });

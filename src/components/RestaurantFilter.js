@@ -26,6 +26,7 @@ const RestaurantFilter = ({
           type="search"
           tabIndex={2}
           className="search-bar"
+          data-testid="search-bar"
           placeholder="Search..."
           onChange={(e) => setSearchText(e.target.value)}
         />

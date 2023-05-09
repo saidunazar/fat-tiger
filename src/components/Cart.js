@@ -27,17 +27,17 @@ const Cart = () => {
           <article className="cart-item" key={item.id}>
             <img src={CDN_URL + item.imageId} alt="dish-image" height="100px" />
             <section className="cart-item-details">
-              <h4>
-                {item.name}{" "}
-                <span
-                  className="fa fa-remove"
-                  style={{ fontSize: "14px", color: "red" }}
-                  onClick={() => handleRemoveItem(item)}
-                ></span>
-              </h4>
+              <h4>{item.name}</h4>
               <p>{item?.description}</p>
-              <p>Rs {item?.price / 100}</p>
+              <p>
+                <b>Price: </b>Rs {item?.price / 100}
+              </p>
             </section>
+            <span
+              className="fa fa-remove"
+              style={{ fontSize: "15px", color: "red", flexBasis: "5%" }}
+              onClick={() => handleRemoveItem(item)}
+            ></span>
           </article>
         ))}
       </section>

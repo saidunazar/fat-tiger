@@ -1,37 +1,22 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-
 import { fetchData } from "../utils/api";
 import Loader from "./shared/Loader";
 import { CDN_URL, MENU_URL } from "../utils/constants";
 import { addItem } from "../utils/store/cartSlice";
 import { useDispatch } from "react-redux";
+import menuItem from "../utils/mock-data/menuMockData";
+import useFetch from "../utils/custom-hooks/useFetch";
 //import UserContext from "../utils/UserContext";
 
 const RestaurantMenu = () => {
-  const [restaurantMenu, setRestaurantMenu] = useState([]);
-  const [error, setError] = useState(false);
-
   const { id } = useParams();
+  const resData = useFetch(MENU_URL + id);
+  const menuItems =
+    resData?.data?.cards[2]?.groupedCard?.cardGroupMap?.["REGULAR"]?.cards[1]
+      ?.card?.card?.itemCards;
+
   const dispatch = useDispatch();
   //const { userDetails, cartItems, setCartItem } = useContext(UserContext);
-
-  useEffect(() => {
-    getRestaurantMenu();
-  }, []);
-
-  const getRestaurantMenu = async () => {
-    try {
-      const { data } = await fetchData(MENU_URL + id);
-      setError(false);
-      setRestaurantMenu(
-        data?.cards[2]?.groupedCard?.cardGroupMap?.["REGULAR"]?.cards[1]?.card
-          ?.card?.itemCards
-      );
-    } catch (err) {
-      setError(true);
-    }
-  };
 
   const handleAddToCart = (menuItem) => {
     const { id, name, description, price, imageId } = menuItem?.card?.info;
@@ -39,18 +24,18 @@ const RestaurantMenu = () => {
     dispatch(addItem({ id, name, description, price, imageId }));
   };
 
-  if (error) {
-    return <h4>Sorry, restaurant is unavailable right now. </h4>;
-  }
   return (
     <>
-      {restaurantMenu?.length > 0 ? (
-        <main className="restaurant-menu-container">
+      {menuItems?.length > 0 ? (
+        <main
+          className="restaurant-menu-container"
+          data-testid="restaurant-menu-container"
+        >
           <section className="restaurant-heading">
-            <h3>Restaurant Menu🍟</h3>
+            <h3>Restaurant Menu:</h3>
           </section>
-          <section className="restaurant-menu-list">
-            {restaurantMenu.map((menuItem) => (
+          <section className="restaurant-menu-list" data-testid="menu-list">
+            {menuItems.map((menuItem) => (
               <article className="menu-item" key={menuItem.card.info.id}>
                 <img
                   src={CDN_URL + menuItem.card.info.imageId}
