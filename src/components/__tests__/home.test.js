@@ -25,11 +25,8 @@ describe("Home Component", () => {
         </Provider>
       </StaticRouter>
     );
-    await waitFor(() => {
-      getByTestId("loader");
-    });
     const loader = getByTestId("loader");
-    expect(loader).toBeTruthy();
+    expect(loader).toBeInTheDocument();
   });
 
   test("Restaurants are listing", async () => {

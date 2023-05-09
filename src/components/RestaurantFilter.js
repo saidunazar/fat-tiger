@@ -9,12 +9,14 @@ const RestaurantFilter = ({
         <span className="fa fa-filter"></span>
         <button
           className="btn btn-show-all"
+          data-testid="show-all-btn"
           onClick={() => showAllRestaurant()}
         >
           All Restaurants
         </button>
         <button
           className="btn btn-filter"
+          data-testid="top-rated-filter"
           onClick={() => filterRestaurantList()}
         >
           Top Rated Restaurants
